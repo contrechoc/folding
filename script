@@ -1,0 +1,34 @@
+int run = 0;
+int dir = 0;
+
+// the setup routine runs once when you press reset:
+void setup() {
+  // initialize the digital pin as an output.
+  pinMode(0, OUTPUT);
+  pinMode(1, OUTPUT);
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+
+  for (int i = 0; i < 5; i++)
+    digitalWrite(i, LOW);
+
+  digitalWrite(run, HIGH);
+  delay(200 + random(200));
+  if (dir == 0 )
+    run++;
+  else
+    run--;
+  if (run == -1 ) {
+    dir = 0;
+    run = 1;
+  }
+  if (run == 5) {
+    dir = 1;
+    run = 3;
+  }
+}
